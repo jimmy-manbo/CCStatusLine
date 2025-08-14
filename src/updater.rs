@@ -46,11 +46,11 @@ impl UpdateState {
     pub fn status_text(&self) -> Option<String> {
         match &self.status {
             #[cfg(feature = "self-update")]
-            UpdateStatus::Ready { version, .. } => Some(format!("\u{f06b0} Update v{}!", version)),
+            UpdateStatus::Ready { version, .. } => Some(format!("🔄 Update v{}!", version)),
             #[cfg(not(feature = "self-update"))]
-            UpdateStatus::Ready { version, .. } => Some(format!("\u{f06b0} Update v{}!", version)),
-            UpdateStatus::Downloading { progress } => Some(format!("\u{f01da} {}%", progress)),
-            UpdateStatus::Installing => Some("\u{f01da} Installing...".to_string()),
+            UpdateStatus::Ready { version, .. } => Some(format!("🔄 Update v{}!", version)),
+            UpdateStatus::Downloading { progress } => Some(format!("⬇️ {}%", progress)),
+            UpdateStatus::Installing => Some("⬇️ Installing...".to_string()),
             #[cfg(feature = "self-update")]
             UpdateStatus::Completed {
                 version,
@@ -60,14 +60,14 @@ impl UpdateState {
                 let now = Utc::now();
                 let seconds_passed = now.signed_duration_since(*completed_at).num_seconds();
                 if seconds_passed < 10 {
-                    Some(format!("\u{f058} Updated v{}!", version))
+                    Some(format!("✅ Updated v{}!", version))
                 } else {
                     None
                 }
             }
             #[cfg(not(feature = "self-update"))]
             UpdateStatus::Completed { version, .. } => {
-                Some(format!("\u{f058} Updated v{}!", version))
+                Some(format!("✅ Updated v{}!", version))
             }
             _ => None,
         }

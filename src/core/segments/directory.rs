@@ -19,7 +19,7 @@ impl Segment for DirectorySegment {
         }
 
         let dir_name = get_current_dir_name(&input.workspace.current_dir);
-        format!("\u{f024b} {}", dir_name)
+        format!("📂 {}", dir_name)
     }
 
     fn enabled(&self) -> bool {

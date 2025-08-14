@@ -174,8 +174,8 @@ impl GitSegment {
     fn format_git_status(&self, info: &GitInfo) -> String {
         let mut parts = Vec::new();
 
-        // Branch name with Nerd Font branch icon
-        parts.push(format!("\u{f02a2} {}", info.branch));
+        // Branch name with branch icon
+        parts.push(format!("🌿 {}", info.branch));
 
         // Status indicators using simple Unicode symbols
         match info.status {

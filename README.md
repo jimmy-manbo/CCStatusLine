@@ -20,7 +20,7 @@ The statusline shows: Model | Directory | Git Branch Status | Context Window Inf
 - **Model display** with simplified Claude model names
 - **Usage tracking** based on transcript analysis
 - **Directory display** showing current workspace
-- **Minimal design** using Nerd Font icons
+- **Minimal design** using Unicode emojis (replaces Nerd Font icons for better compatibility)
 - **Simple configuration** via command line options
 
 ## Installation
@@ -144,7 +144,7 @@ Displays: `Directory | Git Branch Status | Model | Context Window`
 
 ### Git Status Indicators
 
-- Branch name with Nerd Font icon
+- Branch name with branch emoji 🌿
 - Status: `✓` Clean, `●` Dirty, `⚠` Conflicts  
 - Remote tracking: `↑n` Ahead, `↓n` Behind
 
@@ -168,12 +168,31 @@ Configuration support is planned for future releases. Currently uses sensible de
 - **Memory usage**: < 10MB (vs ~25MB for Node.js tools)
 - **Binary size**: ~2MB optimized release build
 
+## This Fork
+
+This is a fork of the original CCometixLine project with the following modifications:
+
+- **🎨 Emoji Icons**: Replaced all Nerd Font Unicode characters with standard Unicode emojis for better compatibility
+- **📦 Universal Compatibility**: Works with any terminal font, no need to install special Nerd Fonts
+- **🚀 Better Display**: Consistent icon display across different terminal environments
+
+### Icon Changes
+
+| Component | Original (Nerd Font) | This Fork (Emoji) |
+|-----------|---------------------|-------------------|
+| Directory | `\uf024b` | 📂 |
+| Git Branch | `\uf02a2` | 🌿 |
+| Usage Stats | `\uf49b` | 📊 |
+| Updates | `\uf06b0` | 🔄 |
+| Download | `\uf01da` | ⬇️ |
+| Complete | `\uf058` | ✅ |
+
 ## Requirements
 
 - **Git**: Version 1.5+ (Git 2.22+ recommended for better branch detection)
-- **Terminal**: Must support Nerd Fonts for proper icon display
-  - Install a [Nerd Font](https://www.nerdfonts.com/) (e.g., FiraCode Nerd Font, JetBrains Mono Nerd Font)
-  - Configure your terminal to use the Nerd Font
+- **Terminal**: Any modern terminal that supports Unicode emojis
+  - No special font requirements (uses standard Unicode emojis instead of Nerd Fonts)
+  - Works with most default terminal fonts
 - **Claude Code**: For statusline integration
 
 ## Development

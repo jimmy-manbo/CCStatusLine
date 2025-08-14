@@ -45,7 +45,7 @@ impl Segment for UsageSegment {
         };
 
         format!(
-            "\u{f49b} {} · {} tokens",
+            "📊 {} · {} tokens",
             percentage_display, tokens_display
         )
     }
